@@ -29,7 +29,7 @@ module.exports = {
 				* = non-vendor note
 			</div></div>
 			<div className="row key"><div className="col-sm-12">
-				This is project of <a href="https://smarthealthit.org" target="_blank">SMART Health IT</a> and the code that generates this page is available on <a href="https://github.com/smart-on-fhir/ehr-compare" target="_blank">Github</a>. To stay updated on the project, please follow <a href="https://twitter.com/intent/user?screen_name=gotdan" target="_blank">@gotdan</a> and <a href="https://twitter.com/intent/user?screen_name=smarthealthit" target="_blank">@smarthealthit</a> on twitter.
+				This is project of <a href="https://smarthealthit.org" target="_blank">SMART Health IT</a> and the code that generates this page is available on <a href="https://github.com/smart-on-fhir/fhir-support" target="_blank">Github</a>. To stay updated on the project, please follow <a href="https://twitter.com/intent/user?screen_name=gotdan" target="_blank">@gotdan</a> and <a href="https://twitter.com/intent/user?screen_name=smarthealthit" target="_blank">@smarthealthit</a> on twitter.
 			</div></div>
 		</div>,	
 

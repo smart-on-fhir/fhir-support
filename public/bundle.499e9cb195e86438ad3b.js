@@ -806,7 +806,7 @@ module.exports = {
 
 
 		(0, _hyperapp.h)("div", { className: "row key" }, (0, _hyperapp.h)("div", { className: "col-sm-12" }, "This is project of ",
-				(0, _hyperapp.h)("a", { href: "https://smarthealthit.org", target: "_blank" }, "SMART Health IT"), " and the code that generates this page is available on ", (0, _hyperapp.h)("a", { href: "https://github.com/smart-on-fhir/ehr-compare", target: "_blank" }, "Github"), ". To stay updated on the project, please follow ", (0, _hyperapp.h)("a", { href: "https://twitter.com/intent/user?screen_name=gotdan", target: "_blank" }, "@gotdan"), " and ", (0, _hyperapp.h)("a", { href: "https://twitter.com/intent/user?screen_name=smarthealthit", target: "_blank" }, "@smarthealthit"), " on twitter."))),
+				(0, _hyperapp.h)("a", { href: "https://smarthealthit.org", target: "_blank" }, "SMART Health IT"), " and the code that generates this page is available on ", (0, _hyperapp.h)("a", { href: "https://github.com/smart-on-fhir/fhir-support", target: "_blank" }, "Github"), ". To stay updated on the project, please follow ", (0, _hyperapp.h)("a", { href: "https://twitter.com/intent/user?screen_name=gotdan", target: "_blank" }, "@gotdan"), " and ", (0, _hyperapp.h)("a", { href: "https://twitter.com/intent/user?screen_name=smarthealthit", target: "_blank" }, "@smarthealthit"), " on twitter."))),
 
 
 
@@ -1679,4 +1679,4 @@ module.exports = __webpack_require__(1);
 
 /***/ })
 /******/ ]);
-//# sourceMappingURL=bundle.dd86acfde77c1823ab24.js.map
+//# sourceMappingURL=bundle.499e9cb195e86438ad3b.js.map
