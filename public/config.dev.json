@@ -1,0 +1,49 @@
+{
+  "sandboxes": {
+    "Cerner": {
+      "documentation": "https://code.cerner.com/",
+      "conformance": "./conformance/cerner.json",
+      "notes": {
+        "resource/allergyintolerance": "Here is an resource level note",
+        "resource/allergyintolerance/_id+token": "Here is a search param level note"
+      }
+    },
+    "Epic 2017": {
+      "documentation": "https://open.epic.com/",
+      "conformance": "./conformance/epic.json",
+      "notes": {
+        "feature/smart": "Sandbox does not appear to support Open Id Connect component of SMART specification (EHR support is not known)."
+      }
+    },
+    "Allscripts Professional": {
+      "documentation": "https://developer.allscripts.com/Content/fhir/content/PRO171_Sandbox/index.html",
+      "conformance": "./conformance/allscripts_pro.json",
+      "notes": {
+        "feature/smart": "Does not support the EHR launch component of the SMART specification."
+      }
+    },
+    "Allscripts Sunrise": {
+      "documentation": "https://developer.allscripts.com/Content/fhir/content/SCM163CU3_Sandbox/index.html",
+      "conformance": "https://scm163cu3.open.allscripts.com/FHIR/metadata",
+      "notes": {
+        "feature/smart": "Does not support the EHR launch component of the SMART specification."
+      }
+    },
+    "Allscripts Touchworks": {
+      "documentation": "https://developer.allscripts.com/Content/fhir/content/TWFHIR17_Sandbox/index.html",
+      "conformance": "https://tw171.open.allscripts.com/FHIR/metadata",
+      "notes": {
+        "feature/smart": "Does not support the EHR launch component of the SMART specification."
+      }
+    }
+  },
+  "ignoreResources": [
+    "StructureDefinition",
+    "Conformance"
+  ],
+  "columns": [
+    "Epic 2017",
+    "Cerner",
+    "Allscripts Professional"
+  ]
+}

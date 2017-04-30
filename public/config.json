@@ -1,0 +1,41 @@
+{
+  "sandboxes": {
+    "Epic 2017": {
+      "documentation": "https://open.epic.com/",
+      "conformance": "https://open-ic.epic.com/Argonaut/api/FHIR/Argonaut/metadata",
+      "notes": {
+        "feature/smart": "Sandbox does not appear to support Open Id Connect component of SMART specification (EHR support is not known)."
+      }
+    },
+    "Cerner": {
+      "documentation": "https://code.cerner.com/",
+      "conformance": "https://fhir-ehr.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/metadata",
+      "notes": {
+        "feature/smart": "Supports both patient-facing and provider-facing use cases."
+      } 
+    },
+    "Allscripts Professional": {
+      "documentation": "https://developer.allscripts.com/Content/fhir/content/PRO171_Sandbox/index.html",
+      "conformance": "https://pro171.open.allscripts.com/FHIR/metadata",
+      "notes": {
+        "feature/smart": "Does not support the EHR launch component of the SMART specification."
+      }
+    },
+    "Allscripts Sunrise": {
+      "documentation": "https://developer.allscripts.com/Content/fhir/content/SCM163CU3_Sandbox/index.html",
+      "conformance": "https://scm163cu3.open.allscripts.com/FHIR/metadata",
+      "notes": {
+        "feature/smart": "Does not support the EHR launch component of the SMART specification."
+      }
+    },
+    "Allscripts Touchworks": {
+      "documentation": "https://developer.allscripts.com/Content/fhir/content/TWFHIR17_Sandbox/index.html",
+      "conformance": "https://tw171.open.allscripts.com/FHIR/metadata",
+      "notes": {
+        "feature/smart": "Does not support the EHR launch component of the SMART specification."
+      }
+    }
+  },
+  "ignoreResources": [ "StructureDefinition", "Conformance"],
+  "columns": ["Epic 2017", "Cerner", "Allscripts Professional"]
+}

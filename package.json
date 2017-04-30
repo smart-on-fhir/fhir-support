@@ -1,0 +1,34 @@
+{
+  "name": "fhir-support",
+  "version": "0.0.1",
+  "description": "View FHIR conformance statements from EHR vendors",
+  "main": "index.js",
+  "dependencies": {
+    "babel-preset-stage-2": "^6.22.0",
+    "hyperapp": "^0.7.1",
+    "jspolyfill-array.prototype.find": "^0.1.3",
+    "lodash": "^4.17.4",
+    "velocity-animate": "^1.4.3",
+    "whatwg-fetch": "^2.0.3"
+  },
+  "devDependencies": {
+    "babel-core": "^6.23.1",
+    "babel-loader": "^6.3.0",
+    "babel-plugin-transform-object-rest-spread": "^6.23.0",
+    "babel-plugin-transform-react-jsx": "^6.23.0",
+    "babel-preset-es2015": "^6.22.0",
+    "webpack": "^2.2.1",
+    "webpack-dev-server": "^2.4.1",
+    "webpack-file-changer": "^2.0.1"
+  },
+  "scripts": {
+    "test": "exit 1",
+    "build": "WEBPACK_ENV=build ./node_modules/.bin/webpack --env production --display-modules",
+    "start": "./node_modules/.bin/webpack-dev-server --content-base ./public -d",
+    "deploy-gh": "git subtree push --prefix public origin gh-pages",
+    "reset-gh-pages": "git push origin `git subtree split --prefix output gh-pages`:gh-pages --force"
+  },
+  "keywords": [],
+  "author": "Dan Gottlieb",
+  "license": "MIT"
+}
