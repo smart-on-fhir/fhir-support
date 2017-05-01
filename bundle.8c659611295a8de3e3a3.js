@@ -6,9 +6,9 @@
 /******/ 	function __webpack_require__(moduleId) {
 /******/
 /******/ 		// Check if module is in cache
-/******/ 		if(installedModules[moduleId])
+/******/ 		if(installedModules[moduleId]) {
 /******/ 			return installedModules[moduleId].exports;
-/******/
+/******/ 		}
 /******/ 		// Create a new module (and put it into the cache)
 /******/ 		var module = installedModules[moduleId] = {
 /******/ 			i: moduleId,
@@ -780,19 +780,26 @@ var _hyperapp = __webpack_require__(0);
 module.exports = {
 	loading:
 	(0, _hyperapp.h)("div", null, "Loading..."),
+
 	loadingSpinner:
 	(0, _hyperapp.h)("span", null,
 		(0, _hyperapp.h)("i", { "class": "fa fa-spinner fa-spin fa-fw" }),
 		(0, _hyperapp.h)("span", { "class": "sr-only" }, "Loading...")),
 
-	pageHeader: (0, _hyperapp.h)("h1", null, "EHR FHIR Support",
+
+	pageHeader:
+	(0, _hyperapp.h)("h1", null, "EHR FHIR Support",
 		(0, _hyperapp.h)("br", null),
 		(0, _hyperapp.h)("span", { className: "small" }, "Based on published FHIR conformance resources")),
 
-	emptyCell: (0, _hyperapp.h)("span", null, "-"),
+
+	emptyCell:
+	(0, _hyperapp.h)("span", null, "-"),
+
 	footer:
 	(0, _hyperapp.h)("div", null,
-		(0, _hyperapp.h)("div", { className: "row key" }, (0, _hyperapp.h)("div", { className: "col-xs-12" },
+		(0, _hyperapp.h)("div", { className: "row key" },
+			(0, _hyperapp.h)("div", { className: "col-xs-12" },
 				(0, _hyperapp.h)("i", { className: "fa fa-fw fa-file-o" }), " = read \xA0|\xA0",
 
 				(0, _hyperapp.h)("i", { className: "fa fa-fw fa-search" }), " = search \xA0|\xA0",
@@ -805,56 +812,79 @@ module.exports = {
 
 
 
-		(0, _hyperapp.h)("div", { className: "row key" }, (0, _hyperapp.h)("div", { className: "col-sm-12" }, "This is project of ",
-				(0, _hyperapp.h)("a", { href: "https://smarthealthit.org", target: "_blank" }, "SMART Health IT"), " and the code that generates this page is available on ", (0, _hyperapp.h)("a", { href: "https://github.com/smart-on-fhir/fhir-support", target: "_blank" }, "Github"), ". To stay updated on the project, please follow ", (0, _hyperapp.h)("a", { href: "https://twitter.com/intent/user?screen_name=gotdan", target: "_blank" }, "@gotdan"), " and ", (0, _hyperapp.h)("a", { href: "https://twitter.com/intent/user?screen_name=smarthealthit", target: "_blank" }, "@smarthealthit"), " on twitter."))),
+
+		(0, _hyperapp.h)("div", { className: "row key" },
+			(0, _hyperapp.h)("div", { className: "col-sm-12" }, "This is project of ",
+				(0, _hyperapp.h)("a", { href: "https://smarthealthit.org", target: "_blank" }, "SMART Health IT"), " and the code that generates this page is available on ",
+				(0, _hyperapp.h)("a", {
+						href: "https://github.com/smart-on-fhir/fhir-support", target: "_blank" }, "Github"), ". To stay updated on the project, please follow ",
+				(0, _hyperapp.h)("a", {
+						href: "https://twitter.com/intent/user?screen_name=gotdan", target: "_blank" }, "@gotdan"), " and ",
+				(0, _hyperapp.h)("a", { href: "https://twitter.com/intent/user?screen_name=smarthealthit",
+						target: "_blank" }, "@smarthealthit"), " on twitter."))),
+
 
 
 
 	error: function error(message) {
-		return (0, _hyperapp.h)("div", { className: "row" }, (0, _hyperapp.h)("div", { className: "col-xs-12" },
+		return (0, _hyperapp.h)("div", { className: "row" },
+			(0, _hyperapp.h)("div", { className: "col-xs-12" },
 				(0, _hyperapp.h)("div", { className: "alert alert-warning text-left" },
 					message)));
 
 
+
 	},
+
 	link: function link(_ref) {var label = _ref.label,href = _ref.href;
 		return (0, _hyperapp.h)("a", { target: "_blank", href: href }, label);
 	},
+
 	toggle: function toggle(_ref2) {var label = _ref2.label,clickHandler = _ref2.clickHandler;
 		return (0, _hyperapp.h)("a", { className: "toggle", href: "#", onClick: clickHandler }, label);
 	},
+
 	column: function column(_ref3) {var width = _ref3.width,body = _ref3.body,key = _ref3.key,className = _ref3.className;
 		className = "col-xs-" + width + " " + (className || "");
 		return (0, _hyperapp.h)("div", { key: key, className: className },
 			body);
 
 	},
+
 	titleColumn: function titleColumn(body) {
 		return (0, _hyperapp.h)("div", { className: "col-xs-3 row-title" },
 			body);
 
 	},
+
 	row: function row(_ref4) {var body = _ref4.body,className = _ref4.className;
 		return (0, _hyperapp.h)("div", { "class": "row " + className },
 			body);
 
 	},
+
 	multipartTitle: function multipartTitle(_ref5) {var primary = _ref5.primary,secondary = _ref5.secondary,className = _ref5.className;
 		return (0, _hyperapp.h)("span", { className: className },
 			primary, "\xA0", secondary);
 
 	},
+
 	note: function note(body) {
 		return (0, _hyperapp.h)("li", null, body);
 	},
+
 	notes: function notes(_notes) {
-		return (0, _hyperapp.h)("div", { className: "col-xs-12" }, (0, _hyperapp.h)("ul", { className: "noteList" },
+		return (0, _hyperapp.h)("div", { className: "col-xs-12" },
+			(0, _hyperapp.h)("ul", { className: "noteList" },
 				_notes));
 
+
 	},
+
 	button: function button(_ref6) {var label = _ref6.label,clickHandler = _ref6.clickHandler;
 		return (0, _hyperapp.h)("a", { "class": "btn btn-primary", taget: "#", onClick: clickHandler }, label);
 	},
+
 	fa: function fa(_ref7) {var icon = _ref7.icon,title = _ref7.title,fixedWidth = _ref7.fixedWidth,spaceAfter = _ref7.spaceAfter;
 		var className = "fa fa-" + icon + " " + (fixedWidth ? "fa-fw" : "");
 		if (spaceAfter) {
@@ -863,6 +893,7 @@ module.exports = {
 			return (0, _hyperapp.h)("i", { className: className, title: title });
 		}
 	},
+
 	select: function select(_ref8) {var changeHandler = _ref8.changeHandler,options = _ref8.options;
 		return (0, _hyperapp.h)("div", { className: "col-xs-3" },
 			(0, _hyperapp.h)("select", { className: "form-control", onChange: changeHandler },
@@ -870,6 +901,7 @@ module.exports = {
 
 
 	},
+
 	selectOption: function selectOption(_ref9) {var name = _ref9.name,value = _ref9.value,selected = _ref9.selected;
 		name = name || value;
 		return (0, _hyperapp.h)("option", { value: value, selected: selected }, name);
@@ -986,9 +1018,9 @@ var renderSubheadRow = function renderSubheadRow(title) {
 
 var renderBinaryCell = function renderBinaryCell(value) {
 	if (value) {
-		return _components2.default.fa({ icon: "check", title: "yes" });
+		return (0, _hyperapp.h)("span", { className: "text-success" }, _components2.default.fa({ icon: "check", title: "yes" }));
 	} else if (value === false) {
-		return _components2.default.fa({ icon: "times", title: "no" });
+		return (0, _hyperapp.h)("span", { className: "text-danger" }, _components2.default.fa({ icon: "times", title: "no" }));
 	} else {
 		return "-";
 	}
@@ -1015,7 +1047,7 @@ var renderRowTitle = function renderRowTitle(model, actions, name, type, hasNote
 	}
 
 	return _components2.default.titleColumn([
-	name,
+	(0, _hyperapp.h)("b", null, name),
 	hasNotes || hasParams ? " " : null,
 	paramsToggle,
 	hasNotes && hasParams ? " | " : null,
@@ -1163,7 +1195,11 @@ var renderResourceRows = function renderResourceRows(model, actions) {
 
 	var _cellRenderer = function _cellRenderer(model, sandbox, resource, colWidth, key) {
 		var value = renderResourceCell(model.resourceSupport[resource][sandbox]);
-		return _components2.default.column({ width: colWidth, body: value, key: key });
+		return _components2.default.column({
+			width: colWidth,
+			body: (0, _hyperapp.h)("span", { "class": "wrap" }, value),
+			key: key });
+
 	};
 
 	return Object.keys(model.resourceSupport).sort().map(function (resource, i) {
@@ -1234,7 +1270,7 @@ module.exports = view;
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony default export */ __webpack_exports__["a"] = function (app) {
+/* harmony default export */ __webpack_exports__["a"] = (function (app) {
   var view = app.view || function () {
     return ""
   }
@@ -1520,7 +1556,7 @@ module.exports = view;
       }
     }
   }
-};
+});
 
 
 /***/ }),
@@ -1530,7 +1566,7 @@ module.exports = view;
 "use strict";
 var i, node, children, stack = []
 
-/* harmony default export */ __webpack_exports__["a"] = function (tag, data) {
+/* harmony default export */ __webpack_exports__["a"] = (function (tag, data) {
   var canConcat, oldCanConcat
 
   children = []
@@ -1581,7 +1617,7 @@ var i, node, children, stack = []
     data: data || {},
     children: children
   }
-};
+});
 
 function svg(tag, data, children) {
   data.ns = "http://www.w3.org/2000/svg"
@@ -1600,7 +1636,7 @@ function svg(tag, data, children) {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony default export */ __webpack_exports__["a"] = function (options) {
+/* harmony default export */ __webpack_exports__["a"] = (function (options) {
   return {
     model: {
       router: match(options.view, location.pathname)
@@ -1631,7 +1667,7 @@ function svg(tag, data, children) {
       }
     ]
   }
-};
+});
 
 function match(routes, path) {
   var match, params = {}
@@ -1679,4 +1715,4 @@ module.exports = __webpack_require__(1);
 
 /***/ })
 /******/ ]);
-//# sourceMappingURL=bundle.499e9cb195e86438ad3b.js.map
+//# sourceMappingURL=bundle.8c659611295a8de3e3a3.js.map

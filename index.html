@@ -40,6 +40,7 @@
 			font-weight: bold;
 			text-align: left !important;
 			text-decoration: underline;
+			font-size: 120%;
 		}
 
 		.toggle {
@@ -55,11 +56,15 @@
 
 		.row-title {
 			text-align: left;
+			overflow: hidden;
+			text-overflow: ellipsis;
 		}
 
 		.noteList {
-			margin: 18px 0;
+			margin: 9px 0 18px;
 			font-size: 90%;
+			font-style: italic;
+    		color: #666;
 		}
 
 		.noteList li {
@@ -71,18 +76,31 @@
 		}
 
 		.zebra {
-			background-color: #efefef;
+			background-color: #f6f6f6;
 		}
 
 		.key {
 			margin: 10px 0;
 			text-align: left;
 		}
+
+		.row:hover {
+			background-color: #efefef;
+		}
+
+		.row .wrap {
+			display: block;
+			margin: auto;
+			width: 6em;
+			text-align: left;
+			color: #666;
+		}
+
 	</style>
 
 	</head>
 	<body>
 		<div id="main" class="container" style="margin-top:40px;"></div>
-		<script src="bundle.499e9cb195e86438ad3b.js"></script>
+		<script src="bundle.8c659611295a8de3e3a3.js"></script>
 	</body>
 </html>
