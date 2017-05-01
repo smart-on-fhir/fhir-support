@@ -104,9 +104,9 @@ const renderSubheadRow = (title) => {
 
 const renderBinaryCell = (value) => {
 	if (value) {
-		return components.fa({icon:"check", title:"yes"})
+		return <span className="text-success">{components.fa({ icon:"check", title:"yes" })}</span>
 	} else if (value === false) {
-		return components.fa({icon:"times", title:"no"})
+		return <span className="text-danger">{components.fa({ icon:"times", title:"no" })}</span>
 	} else {
 		return "-"
 	}
@@ -133,7 +133,7 @@ const renderRowTitle = (model, actions, name, type, hasNotes, notesVisible, hasP
 	}
 
 	return components.titleColumn([
-		name,
+		<b>{name}</b>,
 		(hasNotes || hasParams) ? " " : null,
 		paramsToggle,
 		(hasNotes && hasParams) ? " | " : null,
@@ -167,7 +167,7 @@ const renderFeatureRows = (model, actions) => {
 		let body = model.featureSupport[feature.name][sandbox];
 		if (feature.type != "text") 			
 			body = renderBinaryCell(body);
-		return components.column({width:colWidth, body:body, key:key});
+		return components.column({ width:colWidth, body, key });
 	}
 
 	return rows.map( (feature, i) => {
@@ -281,7 +281,11 @@ const renderResourceRows = (model, actions) => {
 
 	const _cellRenderer = (model, sandbox, resource, colWidth, key) => {
 		const value = renderResourceCell(model.resourceSupport[resource][sandbox]);
-		return components.column({width:colWidth, body:value, key:key});
+		return components.column({
+			width:colWidth, 
+			body:<span class="wrap">{value}</span>,
+			key:key
+		});
 	}
 
 	return Object.keys(model.resourceSupport).sort().map( (resource, i) => {
