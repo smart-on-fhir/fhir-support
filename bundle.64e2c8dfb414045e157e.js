@@ -789,6 +789,7 @@ module.exports = {
 
 	pageHeader:
 	(0, _hyperapp.h)("div", { className: "row page-title" }, (0, _hyperapp.h)("div", { className: "col-xs-12" },
+			(0, _hyperapp.h)("img", { src: "./fhir.png" }),
 			(0, _hyperapp.h)("h1", null, "EHR FHIR Support"),
 			(0, _hyperapp.h)("p", null, "Reflects a real-time view of each sandbox's published conformance metadata (does not guarantee actual conformance)"))),
 
@@ -1197,7 +1198,7 @@ var renderResourceRows = function renderResourceRows(model, actions) {
 		var value = renderResourceCell(model.resourceSupport[resource][sandbox]);
 		return _components2.default.column({
 			width: colWidth,
-			body: (0, _hyperapp.h)("span", { "class": "wrap" }, value),
+			body: value,
 			key: key });
 
 	};
@@ -1715,4 +1716,4 @@ module.exports = __webpack_require__(1);
 
 /***/ })
 /******/ ]);
-//# sourceMappingURL=bundle.06957a8bbeeb5b1bbec9.js.map
+//# sourceMappingURL=bundle.64e2c8dfb414045e157e.js.map
