@@ -788,9 +788,9 @@ module.exports = {
 
 
 	pageHeader:
-	(0, _hyperapp.h)("h1", null, "EHR FHIR Support",
-		(0, _hyperapp.h)("br", null),
-		(0, _hyperapp.h)("span", { className: "small" }, "Based on published FHIR conformance resources")),
+	(0, _hyperapp.h)("div", { className: "row page-title" }, (0, _hyperapp.h)("div", { className: "col-xs-12" },
+			(0, _hyperapp.h)("h1", null, "EHR FHIR Support"),
+			(0, _hyperapp.h)("p", null, "Reflects a real-time view of each sandbox's published conformance metadata (does not guarantee actual conformance)"))),
 
 
 	emptyCell:
@@ -857,7 +857,7 @@ module.exports = {
 
 	},
 
-	row: function row(_ref4) {var body = _ref4.body,className = _ref4.className;
+	row: function row(_ref4) {var body = _ref4.body,_ref4$className = _ref4.className,className = _ref4$className === undefined ? "" : _ref4$className;
 		return (0, _hyperapp.h)("div", { "class": "row " + className },
 			body);
 
@@ -1018,9 +1018,9 @@ var renderSubheadRow = function renderSubheadRow(title) {
 
 var renderBinaryCell = function renderBinaryCell(value) {
 	if (value) {
-		return (0, _hyperapp.h)("span", { className: "text-success" }, _components2.default.fa({ icon: "check", title: "yes" }));
+		return (0, _hyperapp.h)("span", null, _components2.default.fa({ icon: "check", title: "yes" }));
 	} else if (value === false) {
-		return (0, _hyperapp.h)("span", { className: "text-danger" }, _components2.default.fa({ icon: "times", title: "no" }));
+		return (0, _hyperapp.h)("span", null, _components2.default.fa({ icon: "times", title: "no" }));
 	} else {
 		return "-";
 	}
@@ -1047,7 +1047,7 @@ var renderRowTitle = function renderRowTitle(model, actions, name, type, hasNote
 	}
 
 	return _components2.default.titleColumn([
-	(0, _hyperapp.h)("b", null, name),
+	name,
 	hasNotes || hasParams ? " " : null,
 	paramsToggle,
 	hasNotes && hasParams ? " | " : null,
@@ -1098,7 +1098,7 @@ var renderFeatureRows = function renderFeatureRows(model, actions) {
 		var renderedNotes = hasNotes && notesVisible ? _components2.default.notes(notes) : null;
 
 		return _components2.default.row({
-			className: i % 2 ? "zebra" : "", key: i,
+			className: i % 2 ? "zebra data" : "data", key: i,
 			body: [title, columns, renderedNotes] });
 
 	});
@@ -1212,7 +1212,7 @@ var renderResourceRows = function renderResourceRows(model, actions) {
 
 		var hasResourceNotes = notes.length > 0;
 		var notesVisible = model.resourceSupport[resource].notesVisible;
-		var className = i % 2 ? "zebra" : "";
+		var className = i % 2 ? "zebra data" : "data";
 
 		var hasParams = model.resourceSupport[resource].searchParam ? true : false;
 		var paramsVisible = model.resourceSupport[resource].paramsVisible;
@@ -1715,4 +1715,4 @@ module.exports = __webpack_require__(1);
 
 /***/ })
 /******/ ]);
-//# sourceMappingURL=bundle.8c659611295a8de3e3a3.js.map
+//# sourceMappingURL=bundle.06957a8bbeeb5b1bbec9.js.map

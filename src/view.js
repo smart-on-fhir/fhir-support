@@ -104,9 +104,9 @@ const renderSubheadRow = (title) => {
 
 const renderBinaryCell = (value) => {
 	if (value) {
-		return <span className="text-success">{components.fa({ icon:"check", title:"yes" })}</span>
+		return <span>{components.fa({ icon:"check", title:"yes" })}</span>
 	} else if (value === false) {
-		return <span className="text-danger">{components.fa({ icon:"times", title:"no" })}</span>
+		return <span>{components.fa({ icon:"times", title:"no" })}</span>
 	} else {
 		return "-"
 	}
@@ -133,7 +133,7 @@ const renderRowTitle = (model, actions, name, type, hasNotes, notesVisible, hasP
 	}
 
 	return components.titleColumn([
-		<b>{name}</b>,
+		name,
 		(hasNotes || hasParams) ? " " : null,
 		paramsToggle,
 		(hasNotes && hasParams) ? " | " : null,
@@ -184,7 +184,7 @@ const renderFeatureRows = (model, actions) => {
 		const renderedNotes = hasNotes && notesVisible ? components.notes(notes) : null;
 
 		return components.row({
-			className: (i%2 ? "zebra" : ""), key:i,
+			className: (i%2 ? "zebra data" : "data"), key:i,
 			body: [title, columns, renderedNotes]
 		});
 	})
@@ -298,7 +298,7 @@ const renderResourceRows = (model, actions) => {
 
 		const hasResourceNotes = notes.length > 0;
 		const notesVisible = model.resourceSupport[resource].notesVisible;
-		const className =  i%2 ? "zebra" : "";
+		const className =  i%2 ? "zebra data" : "data";
 
 		const hasParams = model.resourceSupport[resource].searchParam ? true : false;
 		const paramsVisible = model.resourceSupport[resource].paramsVisible;

@@ -11,10 +11,10 @@ module.exports = {
 		</span>,
 	
 	pageHeader:
-		<h1>
-			EHR FHIR Support<br/>
-			<span className="small">Based on published FHIR conformance resources</span>
-		</h1>,
+		<div className="row page-title"><div className="col-xs-12">
+			<h1>EHR FHIR Support</h1>
+			<p>Reflects a real-time view of each sandbox's published conformance metadata (does not guarantee actual conformance)</p>
+		</div></div>,
 	
 	emptyCell:
 		<span>-</span>,
@@ -80,7 +80,7 @@ module.exports = {
 		</div>	
 	},
 	
-	row: ( {body, className} ) => {
+	row: ( {body, className=""} ) => {
 		return <div class={`row ${className}`}>
 			{body}
 		</div>
