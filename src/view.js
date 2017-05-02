@@ -283,7 +283,7 @@ const renderResourceRows = (model, actions) => {
 		const value = renderResourceCell(model.resourceSupport[resource][sandbox]);
 		return components.column({
 			width:colWidth, 
-			body:<span class="wrap">{value}</span>,
+			body:value,
 			key:key
 		});
 	}

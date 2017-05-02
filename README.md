@@ -32,7 +32,7 @@ To install a local copy:
 4. Run the dev server
 
     ```
-    npm run start
+    npm start
     ```
     
 5. Browse to ```http://localhost:8080```

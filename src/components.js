@@ -12,6 +12,7 @@ module.exports = {
 	
 	pageHeader:
 		<div className="row page-title"><div className="col-xs-12">
+			<img src="./fhir.png" />
 			<h1>EHR FHIR Support</h1>
 			<p>Reflects a real-time view of each sandbox's published conformance metadata (does not guarantee actual conformance)</p>
 		</div></div>,
