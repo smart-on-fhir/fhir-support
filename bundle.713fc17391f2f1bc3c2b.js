@@ -1163,7 +1163,7 @@ var renderParamRows = function renderParamRows(model, resource, notesVisible, cl
 	};
 
 	var hasParamNotes = void 0;
-	var rows = Object.keys(model.resourceSupport[resource].searchParam).map(function (param, i) {
+	var rows = Object.keys(model.resourceSupport[resource].searchParam).sort().map(function (param, i) {
 		var notes = [];
 		var columns = mapColumns(model, function (sandbox, j, colWidth) {
 			var sandboxNotes = _notesRenderer(model, sandbox, resource, param);
@@ -1205,11 +1205,16 @@ var renderResourceRows = function renderResourceRows(model, actions) {
 
 	return Object.keys(model.resourceSupport).sort().map(function (resource, i) {
 		var notes = [];
+		var hasContent = void 0;
 		var columns = mapColumns(model, function (sandbox, j, colWidth) {
+			if (model.resourceSupport[resource][sandbox]) hasContent = true;
 			var sandboxNotes = _notesRenderer(model, sandbox, resource);
 			notes = notes.concat(sandboxNotes);
 			return _cellRenderer(model, sandbox, resource, colWidth, j);
 		});
+
+		//after removing column, may still have keys but no longer used
+		if (!hasContent) return;
 
 		var hasResourceNotes = notes.length > 0;
 		var notesVisible = model.resourceSupport[resource].notesVisible;
@@ -1716,4 +1721,4 @@ module.exports = __webpack_require__(1);
 
 /***/ })
 /******/ ]);
-//# sourceMappingURL=bundle.64e2c8dfb414045e157e.js.map
+//# sourceMappingURL=bundle.713fc17391f2f1bc3c2b.js.map
