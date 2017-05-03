@@ -201,12 +201,9 @@ const renderResourceCell = (resourceDetail) => {
 		return components.emptyCell;
 	}
 
-	const icons = codeToIcon.filter( icon => {
-		return (resourceDetail.interaction.find( c => c.code === icon[0] ))
-	})
-
-	return icons.map( (i, k) => {
-		return components.fa({icon: i[1], title: i[0], fixedWidth:true, spaceAfter: k < icons.length-1})
+	return codeToIcon.map( (i, k) => {
+		const visible = (resourceDetail.interaction.find( c => c.code === i[0] ))
+		return components.fa({icon: i[1], visible: visible, title: i[0], fixedWidth:true, spaceAfter: k < codeToIcon.length-1})
 	})
 }
 

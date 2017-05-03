@@ -18,7 +18,7 @@ module.exports = {
 		</div></div>,
 	
 	emptyCell:
-		<span>-</span>,
+		<span></span>,
 	
 	footer:
 		<div>
@@ -109,13 +109,9 @@ module.exports = {
 		return <a class="btn btn-primary" taget="#" onClick={clickHandler}>{label}</a>
 	},
 	
-	fa: ( {icon, title, fixedWidth, spaceAfter} ) => {
-		const className = `fa fa-${icon} ${fixedWidth ? "fa-fw" : ""}`;
-		if (spaceAfter) {
-			return <span><i className={className} title={title}></i> </span>
-		} else {
-			return <i className={className} title={title}></i>
-		}
+	fa: ( {icon, visible, title, fixedWidth, spaceAfter} ) => {
+		const className = `fa fa-${icon} ${fixedWidth ? "fa-fw" : ""} ${visible ? "" : "invisible"}`;
+		return <i className={className} title={title}></i>
 	},
 	
 	select: ( {changeHandler, options} ) => {
