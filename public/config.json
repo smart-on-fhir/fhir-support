@@ -34,6 +34,10 @@
       "notes": {
         "feature/smart": "Does not support the EHR launch component of the SMART specification."
       }
+    },
+    "Hapi": {
+      "documentation": "http://hapifhir.io/doc_rest_server.html",
+      "conformance": "http://fhirtest.uhn.ca/baseDstu2/metadata"
     }
   },
   "ignoreResources": [ "StructureDefinition", "Conformance"],

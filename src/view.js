@@ -248,7 +248,7 @@ const renderParamRows = (model, resource, notesVisible, className) => {
 	}
 
 	let hasParamNotes;
-	const rows = Object.keys(model.resourceSupport[resource].searchParam).map( (param, i) => {
+	const rows = Object.keys(model.resourceSupport[resource].searchParam).sort().map( (param, i) => {
 		let notes = [];
 		const columns = mapColumns(model, (sandbox, j, colWidth) => {
 			const sandboxNotes = _notesRenderer(model, sandbox, resource, param);
@@ -290,11 +290,16 @@ const renderResourceRows = (model, actions) => {
 
 	return Object.keys(model.resourceSupport).sort().map( (resource, i) => {
 		let notes = [];
+		let hasContent;
 		const columns = mapColumns(model, (sandbox, j, colWidth) => {
+			if (model.resourceSupport[resource][sandbox]) hasContent = true;
 			const sandboxNotes = _notesRenderer(model, sandbox, resource);
 			notes = notes.concat(sandboxNotes);
 			return _cellRenderer(model, sandbox, resource, colWidth, j);
 		});
+		
+		//after removing column, may still have keys but no longer used
+		if (!hasContent) return;
 
 		const hasResourceNotes = notes.length > 0;
 		const notesVisible = model.resourceSupport[resource].notesVisible;
