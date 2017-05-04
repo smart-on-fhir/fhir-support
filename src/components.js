@@ -110,11 +110,10 @@ module.exports = {
 	},
 	
 	fa: ( {icon, title, fixedWidth, spaceAfter} ) => {
-		const className = `fa fa-${icon} ${fixedWidth ? "fa-fw" : ""}`;
-		if (spaceAfter) {
-			return <span><i className={className} title={title}></i> </span>
+		if (!icon) {
+			return <span><i className="fa fa-fw">&middot;</i>{spaceAfter ? "\u00a0" : ""}</span>;
 		} else {
-			return <i className={className} title={title}></i>
+			return <span><i className={`fa fa-fw ${icon}`} title={title}></i>{spaceAfter ? "\u00a0" : ""}</span>;
 		}
 	},
 	

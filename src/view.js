@@ -104,9 +104,9 @@ const renderSubheadRow = (title) => {
 
 const renderBinaryCell = (value) => {
 	if (value) {
-		return <span>{components.fa({ icon:"check", title:"yes" })}</span>
+		return <span>{components.fa({ icon:"fa-check", title:"yes" })}</span>
 	} else if (value === false) {
-		return <span>{components.fa({ icon:"times", title:"no" })}</span>
+		return <span>{components.fa({ icon:"fa-times", title:"no" })}</span>
 	} else {
 		return "-"
 	}
@@ -193,21 +193,24 @@ const renderFeatureRows = (model, actions) => {
 
 const renderResourceCell = (resourceDetail) => {
 	const codeToIcon = [
-		["read", "file-o"],["search-type", "search"],
-		["create", "plus"], ["update", "pencil"], ["delete", "trash"]
+		["read", "fa-file-o"],["search-type", "fa-search"],
+		["create", "fa-plus"], ["update", "fa-pencil"], ["delete", "fa-trash"]
 	];
 
-	if (!resourceDetail || !resourceDetail.interaction || !resourceDetail.interaction.length) {
-		return components.emptyCell;
-	}
-
-	const icons = codeToIcon.filter( icon => {
-		return (resourceDetail.interaction.find( c => c.code === icon[0] ))
+	return codeToIcon.map( (i, k) => {
+		let icon;
+		if (resourceDetail && resourceDetail.interaction && 
+			resourceDetail.interaction.find(c => c.code === i[0])) icon = i[1];
+		return components.fa({icon: icon, title: i[0], fixedWidth:true, spaceAfter: k < codeToIcon.length-1})
 	})
 
-	return icons.map( (i, k) => {
-		return components.fa({icon: i[1], title: i[0], fixedWidth:true, spaceAfter: k < icons.length-1})
-	})
+	// const icons = codeToIcon.filter( icon => {
+	// 	return (resourceDetail.interaction.find( c => c.code === icon[0] ))
+	// })
+
+	// return icons.map( (i, k) => {
+	// 	return components.fa({icon: i[1], title: i[0], fixedWidth:true, spaceAfter: k < icons.length-1})
+	// })
 }
 
 const renderParamRows = (model, resource, notesVisible, className) => {

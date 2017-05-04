@@ -887,11 +887,10 @@ module.exports = {
 	},
 
 	fa: function fa(_ref7) {var icon = _ref7.icon,title = _ref7.title,fixedWidth = _ref7.fixedWidth,spaceAfter = _ref7.spaceAfter;
-		var className = "fa fa-" + icon + " " + (fixedWidth ? "fa-fw" : "");
-		if (spaceAfter) {
-			return (0, _hyperapp.h)("span", null, (0, _hyperapp.h)("i", { className: className, title: title }), " ");
+		if (!icon) {
+			return (0, _hyperapp.h)("span", null, (0, _hyperapp.h)("i", { className: "fa fa-fw" }, "\xB7"), spaceAfter ? "\xA0" : "");
 		} else {
-			return (0, _hyperapp.h)("i", { className: className, title: title });
+			return (0, _hyperapp.h)("span", null, (0, _hyperapp.h)("i", { className: "fa fa-fw " + icon, title: title }), spaceAfter ? "\xA0" : "");
 		}
 	},
 
@@ -1019,9 +1018,9 @@ var renderSubheadRow = function renderSubheadRow(title) {
 
 var renderBinaryCell = function renderBinaryCell(value) {
 	if (value) {
-		return (0, _hyperapp.h)("span", null, _components2.default.fa({ icon: "check", title: "yes" }));
+		return (0, _hyperapp.h)("span", null, _components2.default.fa({ icon: "fa-check", title: "yes" }));
 	} else if (value === false) {
-		return (0, _hyperapp.h)("span", null, _components2.default.fa({ icon: "times", title: "no" }));
+		return (0, _hyperapp.h)("span", null, _components2.default.fa({ icon: "fa-times", title: "no" }));
 	} else {
 		return "-";
 	}
@@ -1108,21 +1107,24 @@ var renderFeatureRows = function renderFeatureRows(model, actions) {
 
 var renderResourceCell = function renderResourceCell(resourceDetail) {
 	var codeToIcon = [
-	["read", "file-o"], ["search-type", "search"],
-	["create", "plus"], ["update", "pencil"], ["delete", "trash"]];
+	["read", "fa-file-o"], ["search-type", "fa-search"],
+	["create", "fa-plus"], ["update", "fa-pencil"], ["delete", "fa-trash"]];
 
 
-	if (!resourceDetail || !resourceDetail.interaction || !resourceDetail.interaction.length) {
-		return _components2.default.emptyCell;
-	}
-
-	var icons = codeToIcon.filter(function (icon) {
-		return resourceDetail.interaction.find(function (c) {return c.code === icon[0];});
+	return codeToIcon.map(function (i, k) {
+		var icon = void 0;
+		if (resourceDetail && resourceDetail.interaction &&
+		resourceDetail.interaction.find(function (c) {return c.code === i[0];})) icon = i[1];
+		return _components2.default.fa({ icon: icon, title: i[0], fixedWidth: true, spaceAfter: k < codeToIcon.length - 1 });
 	});
 
-	return icons.map(function (i, k) {
-		return _components2.default.fa({ icon: i[1], title: i[0], fixedWidth: true, spaceAfter: k < icons.length - 1 });
-	});
+	// const icons = codeToIcon.filter( icon => {
+	// 	return (resourceDetail.interaction.find( c => c.code === icon[0] ))
+	// })
+
+	// return icons.map( (i, k) => {
+	// 	return components.fa({icon: i[1], title: i[0], fixedWidth:true, spaceAfter: k < icons.length-1})
+	// })
 };
 
 var renderParamRows = function renderParamRows(model, resource, notesVisible, className) {
@@ -1721,4 +1723,4 @@ module.exports = __webpack_require__(1);
 
 /***/ })
 /******/ ]);
-//# sourceMappingURL=bundle.713fc17391f2f1bc3c2b.js.map
+//# sourceMappingURL=bundle.051d1da441bcb2661023.js.map
