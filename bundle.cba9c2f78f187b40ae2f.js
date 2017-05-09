@@ -1102,7 +1102,6 @@ var renderFeatureRows = function renderFeatureRows(model, actions) {
 			body: [title, columns, renderedNotes] });
 
 	});
-
 };
 
 var renderResourceCell = function renderResourceCell(resourceDetail) {
@@ -1114,17 +1113,10 @@ var renderResourceCell = function renderResourceCell(resourceDetail) {
 	return codeToIcon.map(function (i, k) {
 		var icon = void 0;
 		if (resourceDetail && resourceDetail.interaction &&
-		resourceDetail.interaction.find(function (c) {return c.code === i[0];})) icon = i[1];
+		resourceDetail.interaction.find(function (c) {return c && c.code === i[0];})) icon = i[1];
 		return _components2.default.fa({ icon: icon, title: i[0], fixedWidth: true, spaceAfter: k < codeToIcon.length - 1 });
 	});
 
-	// const icons = codeToIcon.filter( icon => {
-	// 	return (resourceDetail.interaction.find( c => c.code === icon[0] ))
-	// })
-
-	// return icons.map( (i, k) => {
-	// 	return components.fa({icon: i[1], title: i[0], fixedWidth:true, spaceAfter: k < icons.length-1})
-	// })
 };
 
 var renderParamRows = function renderParamRows(model, resource, notesVisible, className) {
@@ -1167,11 +1159,17 @@ var renderParamRows = function renderParamRows(model, resource, notesVisible, cl
 	var hasParamNotes = void 0;
 	var rows = Object.keys(model.resourceSupport[resource].searchParam).sort().map(function (param, i) {
 		var notes = [];
+		var hasContent = void 0;
 		var columns = mapColumns(model, function (sandbox, j, colWidth) {
+			if (model.resourceSupport[resource].searchParam[param][sandbox]) hasContent = true;
 			var sandboxNotes = _notesRenderer(model, sandbox, resource, param);
 			notes = notes.concat(sandboxNotes);
 			return _cellRenderer(model, sandbox, resource, param, colWidth, j);
 		});
+
+		//after removing column, may still have keys but no longer used
+		if (!hasContent) return;
+
 		var title = _titleRenderer(model, param);
 		if (notes.length > 0) hasParamNotes = true;
 		var renderedNotes = notesVisible && notes.length > 0 ? _components2.default.notes(notes) : null;
@@ -1723,4 +1721,4 @@ module.exports = __webpack_require__(1);
 
 /***/ })
 /******/ ]);
-//# sourceMappingURL=bundle.051d1da441bcb2661023.js.map
+//# sourceMappingURL=bundle.cba9c2f78f187b40ae2f.js.map
