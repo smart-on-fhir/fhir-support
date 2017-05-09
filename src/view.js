@@ -188,7 +188,6 @@ const renderFeatureRows = (model, actions) => {
 			body: [title, columns, renderedNotes]
 		});
 	})
-
 }
 
 const renderResourceCell = (resourceDetail) => {
@@ -200,17 +199,10 @@ const renderResourceCell = (resourceDetail) => {
 	return codeToIcon.map( (i, k) => {
 		let icon;
 		if (resourceDetail && resourceDetail.interaction && 
-			resourceDetail.interaction.find(c => c.code === i[0])) icon = i[1];
+			resourceDetail.interaction.find(c => c && c.code === i[0])) icon = i[1];
 		return components.fa({icon: icon, title: i[0], fixedWidth:true, spaceAfter: k < codeToIcon.length-1})
 	})
 
-	// const icons = codeToIcon.filter( icon => {
-	// 	return (resourceDetail.interaction.find( c => c.code === icon[0] ))
-	// })
-
-	// return icons.map( (i, k) => {
-	// 	return components.fa({icon: i[1], title: i[0], fixedWidth:true, spaceAfter: k < icons.length-1})
-	// })
 }
 
 const renderParamRows = (model, resource, notesVisible, className) => {
@@ -253,11 +245,17 @@ const renderParamRows = (model, resource, notesVisible, className) => {
 	let hasParamNotes;
 	const rows = Object.keys(model.resourceSupport[resource].searchParam).sort().map( (param, i) => {
 		let notes = [];
+		let hasContent;
 		const columns = mapColumns(model, (sandbox, j, colWidth) => {
+			if (model.resourceSupport[resource].searchParam[param][sandbox]) hasContent = true;
 			const sandboxNotes = _notesRenderer(model, sandbox, resource, param);
 			notes = notes.concat(sandboxNotes);
 			return _cellRenderer(model, sandbox, resource, param, colWidth, j);
 		});
+
+		//after removing column, may still have keys but no longer used
+		if (!hasContent) return;
+
 		const title = _titleRenderer(model, param);
 		if (notes.length > 0) hasParamNotes = true;
 		const renderedNotes = notesVisible && notes.length > 0 ? components.notes(notes) : null;
