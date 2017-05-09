@@ -1,9 +1,10 @@
 {
   "sandboxes": {
-    "Epic 2017": {
+    "Epic": {
       "documentation": "https://open.epic.com/",
       "conformance": "https://open-ic.epic.com/Argonaut/api/FHIR/Argonaut/metadata",
       "notes": {
+        "feature/fhir-version": "Current sandbox reflects a mix of Epic 2015 and Epic 2017 FHIR support, but will be upgraded to full Epic 2017 support in the future.",
         "feature/smart": "Sandbox does not appear to support Open Id Connect component of SMART specification (EHR support is not known)."
       }
     },
@@ -41,5 +42,5 @@
     }
   },
   "ignoreResources": [ "StructureDefinition", "Conformance"],
-  "columns": ["Epic 2017", "Cerner", "Allscripts Professional"]
+  "columns": ["Epic", "Cerner", "Allscripts Professional"]
 }
